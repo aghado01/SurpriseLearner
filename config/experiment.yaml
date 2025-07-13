@@ -1,0 +1,25 @@
+# Adaptive Visual Decision Making Configuration
+experiment:
+  name: "fork_intersection_avoidance"
+  description: "Recursive Bayesian framework with generative priors"
+  scene_duration: 1000 # Total scene length in steps
+
+task_parameters:
+  danger_probability: 0.8
+  difficulty_levels: 3
+
+volatility_parameters:
+  hazard_rate: 0.005
+  tau_drift: 30
+  bias_extremes: [0.2, 0.8]
+
+visual_parameters:
+  scene_size: [64, 64]
+  safe_background_color: [50, 50, 50]
+  danger_background_color: [255, 215, 0]
+
+model_parameters:
+  latent_dim: 10
+  generator_hidden: 32
+  learning_rate: 0.001
+  reconstruction_baseline_window: 50

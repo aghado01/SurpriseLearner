@@ -1,0 +1,23 @@
+autonomous_perception_learner/
+├── src/
+│   ├── __init__.py
+│   ├── environment/
+│   │   ├── __init__.py
+│   │   ├── scene_generator.py      # Continuous scene generation
+│   │   ├── volatility_controller.py # Time-varying bias dynamics
+│   │   └── task_parameters.py      # Hyperparameters & probabilities
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── generator.py            # 2-layer ReLU generative prior
+│   │   ├── bayesian_learner.py     # Recursive Bayesian framework
+│   │   └── surprise_detector.py    # LC-NE surprise signals
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── visualization.py        # Scene rendering & plotting
+│   └── main.py                     # Main execution
+├── configs/
+│   └── experiment_config.yaml      # All hyperparameters
+├── requirements.txt
+├── README.md
+└── notebooks/
+    └── demo.ipynb                  # Interactive demonstration
