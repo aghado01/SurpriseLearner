@@ -1,0 +1,614 @@
+Executive Summary
+Based on cross-examination of Gemini's comprehensive guidance, Perplexity's pragmatic approach, and your current repository state, this consolidated plan balances professional engineering practices with interview timeline constraints. The focus is on a torch-first MNIST geometric priors demonstration that showcases both technical competency and methodological innovation through the GRRI framework.
+
+Critical Reconciliation of Conflicting Guidance
+Resolution Strategy: Implement Gemini's solid engineering practices but scope them to Perplexity's pragmatic timeline. Use strategic commenting to signal advanced capabilities without implementation overhead.
+
+Approach	Adopt	Defer	Rationale
+Gemini	Pre-commit, pyproject.toml, Docker skeleton	Full CI/CD matrix, extensive documentation	Professional foundation without scope creep
+Perplexity	CUDA-first focus, strategic commenting	Minimal viable approach only	Maintain engineering standards while meeting timeline
+GRRI	Systematic AI-assisted workflow	Complex formalization	Demonstrate methodological innovation
+1. Immediate Repository Structure Updates
+1.1 Core Configuration Files
+Create .env file for Python 3.11:
+
+bash
+# Development Environment Configuration
+PYTHON_VERSION=3.11
+CUDA_VISIBLE_DEVICES=0
+PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512
+
+# Project Configuration
+PROJECT_NAME=adaptive_bayesian_driver
+LOG_LEVEL=INFO
+DEV_MODE=true
+
+# GPU Settings (for CUDA-first development)
+TORCH_BACKEND=cuda
+DEVICE_PREFERENCE=cuda
+Create pyproject.toml:
+
+text
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adaptive-bayesian-driver"
+version = "0.1.0"
+description = "LC-NE inspired adaptive Bayesian learning for autonomous driving"
+authors = [{name = "Your Name", email = "your.email@example.com"}]
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.2.0",
+    "torchvision>=0.17.0",
+    "numpy>=1.24.0",
+    "matplotlib>=3.6.0",
+    "pillow>=9.0.0",
+    "pyyaml>=6.0.0",
+    "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+    "ruff>=0.4.4",
+    "mypy>=1.10.0",
+    "pre-commit>=3.7.0",
+]
+
+aspirational = [
+    "mlflow>=2.13.0",
+    "hydra-core>=1.3.0",
+    "wandb>=0.17.0",
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.29.0",
+    "onnx>=1.16.0",
+    "onnxruntime-gpu>=1.18.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/adaptive-bayesian-driver"
+"Bug Reports" = "https://github.com/yourusername/adaptive-bayesian-driver/issues"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = ["E501", "N803", "N806"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = ["--strict-markers", "--strict-config", "--cov=adaptive_bayesian_driver"]
+1.2 Requirements Files Strategy
+Create requirements.txt (Pragmatic - Interview Focus):
+
+text
+# =============================================================================
+# CORE DEPENDENCIES - Interview-Ready MNIST Geometric Priors Demo
+# =============================================================================
+
+# PyTorch Stack (CUDA-first installation)
+# Install with: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+torch>=2.2.0,<2.4.0
+torchvision>=0.17.0,<0.19.0
+
+# Core Scientific Computing
+numpy>=1.24.0,<1.27.0
+matplotlib>=3.6.0,<3.9.0
+pillow>=9.0.0,<11.0.0
+
+# Configuration & Utilities
+pyyaml>=6.0.0,<7.0.0
+tqdm>=4.66.0,<5.0.0
+
+# Development & Testing
+pytest>=8.0.0,<9.0.0
+pytest-cov>=5.0.0,<6.0.0
+
+# Code Quality (Modern Python toolchain)
+ruff>=0.4.4,<0.5.0
+mypy>=1.10.0,<2.0.0
+pre-commit>=3.7.0,<4.0.0
+
+# =============================================================================
+# CUDA Installation Notes:
+# For GPU support, install PyTorch with:
+# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+# Verify with: python -c "import torch; print(torch.cuda.is_available())"
+# =============================================================================
+Create requirements-aspirational.txt (Helm-Aligned Production Features):
+
+text
+# =============================================================================
+# HELM-ALIGNED PRODUCTION STACK
+# Advanced MLOps capabilities for production scaling
+# =============================================================================
+
+# Include all core requirements
+-r requirements.txt
+
+# Experiment Tracking & Model Registry
+mlflow>=2.13.0,<3.0.0              # Open-source ML lifecycle management
+wandb>=0.17.0,<1.0.0               # Advanced experiment tracking
+
+# Configuration Management
+hydra-core>=1.3.0,<2.0.0           # Hierarchical configuration composition
+
+# High-Performance Inference
+onnx>=1.16.0,<2.0.0                # Model interoperability
+onnxruntime-gpu>=1.18.0,<2.0.0     # GPU-accelerated inference
+
+# API Serving & Deployment
+fastapi>=0.111.0,<1.0.0            # High-performance async API
+uvicorn[standard]>=0.29.0,<1.0.0   # ASGI server with performance extras
+
+# Data Versioning & Pipeline Management
+# dvc[s3]>=3.50.0,<4.0.0           # Uncomment for data versioning
+
+# Advanced Deep Learning
+# pytorch-lightning>=2.3.0,<3.0.0  # Uncomment for scalable training
+# torchmetrics>=1.4.0,<2.0.0       # Uncomment for advanced metrics
+
+# =============================================================================
+# PRODUCTION DEPLOYMENT NOTES:
+# - MLflow: Self-hostable experiment tracking
+# - Hydra: Configuration composition for multi-run experiments
+# - ONNX: Framework-agnostic model deployment
+# - FastAPI: Production-grade API serving
+# - TensorRT: Enable for maximum inference performance (system-level install)
+# =============================================================================
+2. Pre-Commit Configuration
+Create .pre-commit-config.yaml:
+
+text
+# Pre-commit hooks for automated code quality
+# See https://pre-commit.com for more information
+
+repos:
+  # Standard pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: check-added-large-files
+
+  # Security scanning
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.2
+    hooks:
+      - id: gitleaks
+        name: "🔒 security · Detect hardcoded secrets"
+
+  # Python code quality (Ruff replaces Black + flake8 + isort)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.4
+    hooks:
+      - id: ruff
+        name: "🐍 python · Lint with Ruff"
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+        name: "🐍 python · Format with Ruff"
+
+  # Type checking
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.10.0
+    hooks:
+      - id: mypy
+        name: "🐍 python · Check types with mypy"
+        additional_dependencies: [types-PyYAML, types-tqdm]
+        args: [--ignore-missing-imports]
+
+  # Documentation quality
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        name: "📝 docs · Check for spelling errors"
+        args: ["-L", "nd,iam,thre,ba"]
+3. Package Setup Files
+Update setup.py:
+
+python
+#!/usr/bin/env python3
+"""
+Setup script for adaptive-bayesian-driver package.
+Modern Python packaging using setuptools with pyproject.toml configuration.
+"""
+
+from setuptools import setup
+
+# Configuration is now in pyproject.toml
+# This file maintained for backwards compatibility and editable installs
+if __name__ == "__main__":
+    setup()
+Create setup.cfg:
+
+text
+[metadata]
+name = adaptive-bayesian-driver
+description = LC-NE inspired adaptive Bayesian learning for autonomous driving
+long_description = file: README.md
+long_description_content_type = text/markdown
+license = MIT
+author = Your Name
+author_email = your.email@example.com
+classifiers =
+    Development Status :: 3 - Alpha
+    Intended Audience :: Science/Research
+    License :: OSI Approved :: MIT License
+    Programming Language :: Python :: 3.11
+    Topic :: Scientific/Engineering :: Artificial Intelligence
+
+[options]
+packages = find:
+python_requires = >=3.11
+include_package_data = True
+zip_safe = False
+
+[options.packages.find]
+where = .
+include = adaptive_bayesian_driver*
+exclude = tests*
+
+[options.extras_require]
+dev =
+    pytest>=8.0.0
+    pytest-cov>=5.0.0
+    ruff>=0.4.4
+    mypy>=1.10.0
+    pre-commit>=3.7.0
+
+[flake8]
+max-line-length = 88
+extend-ignore = E203, W503
+exclude = .git,__pycache__,build,dist,.eggs
+
+[coverage:run]
+source = adaptive_bayesian_driver
+omit =
+    */tests/*
+    */test_*
+    setup.py
+
+[coverage:report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise AssertionError
+    raise NotImplementedError
+4. Docker Configuration (Lightweight)
+Create Dockerfile:
+
+text
+# =============================================================================
+# Multi-stage Docker build for adaptive-bayesian-driver
+# Optimized for development and demonstration purposes
+# =============================================================================
+
+# Build stage - install dependencies and build tools
+FROM python:3.11-slim as builder
+
+WORKDIR /usr/src/app
+
+# Install system dependencies for PyTorch compilation
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir --user -r requirements.txt
+
+# Production stage - minimal runtime environment
+FROM python:3.11-slim
+
+WORKDIR /usr/src/app
+
+# Create non-root user for security
+RUN groupadd --system app && useradd --system --group app
+
+# Copy installed packages from builder stage
+COPY --from=builder /root/.local /home/app/.local
+
+# Copy application code
+COPY ./adaptive_bayesian_driver ./adaptive_bayesian_driver
+COPY ./config ./config
+COPY ./demo.py .
+
+# Set ownership and switch to non-root user
+RUN chown -R app:app /usr/src/app
+USER app
+
+# Add local Python packages to PATH
+ENV PATH=/home/app/.local/bin:$PATH
+
+# Expose port for potential API serving
+EXPOSE 8000
+
+# Default command runs the demo
+CMD ["python", "demo.py"]
+Create .dockerignore:
+
+text
+# Version control
+.git/
+.gitignore
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Development environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Documentation
+docs/_build/
+notebooks/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project-specific
+_chatbot/
+_reports/
+*.log
+5. GitHub Actions CI/CD
+Create .github/workflows/ci.yml:
+
+text
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-format:
+    name: Code Quality Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pre-commit
+        run: pip install pre-commit
+
+      - name: Run pre-commit hooks
+        run: pre-commit run --all-files
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: lint-and-format
+    strategy:
+      matrix:
+        python-version: ['3.11']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          python -m pytest tests/ -v --cov=adaptive_bayesian_driver --cov-report=xml
+
+      - name: Verify package import
+        run: python -c "import adaptive_bayesian_driver; print('✓ Package import successful')"
+
+  build-docker:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker build . -t adaptive-bayesian-driver:${{ github.sha }}
+6. Package Import Updates
+Update adaptive_bayesian_driver/__init__.py:
+
+python
+"""
+Adaptive Bayesian Driver - LC-NE Inspired Learning System
+
+This package implements Locus Coeruleus-Norepinephrine (LC-NE) surprise detection
+mechanisms for adaptive Bayesian learning in autonomous driving applications.
+
+Core modules:
+- models: Neural network architectures and learning algorithms
+- environment: Task environments and scene generation
+- utils: Utilities for visualization and device management
+"""
+
+__version__ = "0.2.0"
+__author__ = "Azriel Ghadooshahy"
+
+# Core imports for easy access
+try:
+    import torch
+    import numpy as np
+
+    # Check CUDA availability
+    CUDA_AVAILABLE = torch.cuda.is_available()
+    DEVICE = torch.device("cuda" if CUDA_AVAILABLE else "cpu")
+
+except ImportError as e:
+    print(f"Warning: Core dependencies not available: {e}")
+    CUDA_AVAILABLE = False
+    DEVICE = "cpu"
+
+# Expose key classes for convenient imports
+from .config import load_config
+from .utils.device import get_device
+
+__all__ = [
+    "__version__",
+    "load_config",
+    "get_device",
+    "CUDA_AVAILABLE",
+    "DEVICE",
+]
+Create adaptive_bayesian_driver/config.py:
+
+python
+"""Configuration management for adaptive Bayesian driver."""
+
+import yaml
+from pathlib import Path
+from typing import Dict, Any
+import torch
+
+
+def load_config(config_path: str = "config/experiment.yaml") -> Dict[str, Any]:
+    """
+    Load configuration from YAML file.
+
+    Args:
+        config_path: Path to YAML configuration file
+
+    Returns:
+        Configuration dictionary
+    """
+    config_file = Path(config_path)
+    if not config_file.exists():
+        raise FileNotFoundError(f"Configuration file not found: {config_path}")
+
+    with open(config_file, 'r') as f:
+        config = yaml.safe_load(f)
+
+    # Add device configuration
+    config['device'] = str(torch.device("cuda" if torch.cuda.is_available() else "cpu"))
+
+    return config
+
+
+def get_device(prefer_cuda: bool = True) -> torch.device:
+    """
+    Get optimal compute device.
+
+    Args:
+        prefer_cuda: Whether to prefer CUDA if available
+
+    Returns:
+        PyTorch device
+    """
+    if prefer_cuda and torch.cuda.is_available():
+        return torch.device('cuda')
+    elif torch.backends.mps.is_available():  # Apple Silicon support
+        return torch.device('mps')
+    else:
+        return torch.device('cpu')
+7. Installation & Setup Instructions
+Execute these commands in sequence:
+
+bash
+# 1. Install pre-commit framework
+pip install pre-commit
+
+# 2. Install the package in development mode
+pip install -e .
+
+# 3. Install development dependencies
+pip install -r requirements.txt
+
+# 4. Set up pre-commit hooks
+pre-commit install
+
+# 5. Run initial pre-commit check
+pre-commit run --all-files
+
+# 6. Verify installation
+python -c "import adaptive_bayesian_driver; print('✓ Installation successful')"
+
+# 7. Test CUDA availability (if applicable)
+python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}')"
+8. Strategic Implementation Notes
+8.1 Helm.ai Alignment Comments
+Add these strategic comments throughout your codebase:

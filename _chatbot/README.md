@@ -4,6 +4,9 @@ This directory contains helper scripts and tools created by AI assistants to sup
 
 ## Directory Structure
 
+### `_instructions/`
+potentially freeform documents containing specific instructions for executing agentic updates
+
 ### `_diagnostics/`
 Scripts for diagnosing issues and checking system health:
 - `format_scanner.py` - Scans repository for formatting issues

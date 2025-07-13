@@ -1,23 +1,110 @@
-autonomous_perception_learner/
+surprise-learning-exploration-exploitation/
+├── .env                              # Development environment variables
+├── .gitignore                        # Git exclusions
+├── README.md                         # Project overview and quick start
+├── requirements.txt                  # Dependencies with strategic commenting
+├── pyproject.toml                   # Modern Python project configuration
+├── demo.py                          # One-click demonstration script
+├── setup.py                         # Package installation script
+│
+├── .github/                         # GitHub workflows and templates
+│   └── workflows/
+│       └── ci.yml                   # Continuous integration pipeline
+│
 ├── src/
+│   └── adaptive_bayesian_driver/    # Main package
+│       ├── __init__.py
+│       ├── config.py                # Configuration management
+│       ├── main.py                  # Main entry point
+│       │
+│       ├── data/                    # Data loading and processing
+│       │   ├── __init__.py
+│       │   └── mnist_fork.py        # MNIST with arrow overlay dataset
+│       │
+│       ├── models/                  # Neural network architectures
+│       │   ├── __init__.py
+│       │   ├── geometric_prior.py   # β-VAE manifold learning
+│       │   ├── policy_head.py       # GPU-native decision making
+│       │   └── experimental/        # Future model placeholders
+│       │       ├── __init__.py
+│       │       ├── transformer_backbone.py  # (stub)
+│       │       └── diffusion_generator.py   # (stub)
+│       │
+│       ├── engine/                  # Training and inference
+│       │   ├── __init__.py
+│       │   └── trainer.py           # CUDA-first training loop
+│       │
+│       ├── utils/                   # Utilities and helpers
+│       │   ├── __init__.py
+│       │   ├── device.py            # GPU device management
+│       │   ├── metrics.py           # Performance tracking
+│       │   └── task_view_renderer.py # Live training visualization
+│       │
+│       └── applications/            # Domain-specific implementations
+│           ├── __init__.py
+│           └── autonomous_driving/  # Driving-specific components
+│               ├── __init__.py
+│               ├── scene_renderer.py
+│               └── surprise_detector.py
+│
+├── tests/                           # Test suites with meaningful names
 │   ├── __init__.py
-│   ├── environment/
-│   │   ├── __init__.py
-│   │   ├── scene_generator.py      # Continuous scene generation
-│   │   ├── volatility_controller.py # Time-varying bias dynamics
-│   │   └── task_parameters.py      # Hyperparameters & probabilities
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── generator.py            # 2-layer ReLU generative prior
-│   │   ├── bayesian_learner.py     # Recursive Bayesian framework
-│   │   └── surprise_detector.py    # LC-NE surprise signals
-│   ├── utils/
-│   │   ├── __init__.py
-│   │   └── visualization.py        # Scene rendering & plotting
-│   └── main.py                     # Main execution
-├── configs/
-│   └── experiment_config.yaml      # All hyperparameters
-├── requirements.txt
-├── README.md
-└── notebooks/
-    └── demo.ipynb                  # Interactive demonstration
+│   ├── test_cuda_device_availability.py
+│   ├── test_mnist_fork_dataset_loading.py
+│   ├── test_geometric_prior_training.py
+│   ├── test_surprise_detection_basic.py
+│   └── test_end_to_end_demo.py
+│
+├── config/                          # Configuration files
+│   ├── demo.yaml                    # Demo configuration
+│   ├── experiment.yaml              # Full experiment settings
+│   └── cluster/                     # Future cluster configurations
+│       └── README.md                # Placeholder for scaling
+│
+├── notebooks/                       # Jupyter analysis and demos
+│   ├── 01_concept_demonstration.ipynb
+│   ├── 02_surprise_analysis.ipynb
+│   └── roadmap/
+│       └── phase2_visual_search.ipynb  # VPA-V4 placeholder
+│
+├── data/                           # Data storage
+│   ├── raw/                        # Raw datasets
+│   ├── processed/                  # Processed datasets
+│   └── synthetic/                  # Generated data
+│
+├── experiments/                    # Experiment tracking
+│   ├── logs/                       # Training logs
+│   └── outputs/                    # Model outputs and visualizations
+│
+├── docs/                          # Documentation
+│   ├── api/                       # API documentation
+│   ├── tutorials/                 # Usage tutorials
+│   └── future_work.md             # Aspirational roadmap
+│
+└── _chatbot/                      # AI-assisted development framework
+    ├── _CONTRIBUTING.md           # AI assistant guidelines (Gemini style)
+    ├── README.md                  # Framework documentation
+    ├── QUICK_REFERENCE.md         # Command reference
+    ├── REPO_GUIDELINES.md         # Development standards
+    │
+    ├── _diagnostics/              # Health checking tools
+    │   ├── __init__.py
+    │   ├── format_scanner.py      # Repository formatting validation
+    │   ├── cicd_check.py          # CI/CD readiness check
+    │   └── validate_build.py      # Build validation
+    │
+    ├── _fixing/                   # Automated repair tools
+    │   ├── __init__.py
+    │   ├── fix_formatting.py      # Encoding and style fixes
+    │   └── organize.py            # File organization helper
+    │
+    ├── _testing/                  # Test utilities
+    │   ├── __init__.py
+    │   ├── comprehensive_test.py  # Full test runner
+    │   └── run_specific_tests.py  # Targeted test execution
+    │
+    └── prompts/                   # Version-controlled prompts
+        ├── README.md              # Prompt management guide
+        ├── model_generation/      # Model creation prompts
+        ├── testing/               # Test generation prompts
+        └── documentation/         # Doc generation prompts
