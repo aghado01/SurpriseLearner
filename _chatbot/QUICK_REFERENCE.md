@@ -1,4 +1,4 @@
-# Quick Reference for AI Assistants
+s# Quick Reference for AI Assistants
 
 ## 🚀 Essential Commands
 
