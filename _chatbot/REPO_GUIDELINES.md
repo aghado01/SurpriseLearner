@@ -15,6 +15,7 @@ _chatbot/
 ├── _diagnostics/     # Scanning, checking, validation tools
 ├── _fixing/          # Automated repair and cleanup tools
 ├── _testing/         # Test utilities and debugging tools
+
 ├── debugging/        # Debug helpers and analysis tools
 ├── validation/       # CI/CD and quality assurance tools
 ├── reporting/        # Report generation and documentation tools
@@ -63,7 +64,7 @@ Coding updates in this review are treated as a collaborative and iterative proce
 ### Git Workflows
 
 # Committing changes
-1. **Stage** changes: `git add .`
+1. **Stage** changes: `git add --renormalize .` if .gitattributes file is present else `git add .`
 2. **Commit** with descriptive message: `git commit -m "{Instructions}"`
 3. **Update** changelog if significant changes were made
 
