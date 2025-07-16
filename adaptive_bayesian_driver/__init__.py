@@ -1,40 +1,42 @@
 """
-Adaptive Bayesian Driver - LC-NE Inspired Learning System
-
-This package implements Locus Coeruleus-Norepinephrine (LC-NE) surprise
-detection mechanisms for adaptive Bayesian learning in autonomous driving
-applications.
-
-Core modules:
-- models: Neural network architectures and learning algorithms
-- environment: Task environments and scene generation
-- utils: Utilities for visualization and device management
+Adaptive Bayesian Driver - Production ML Package
 """
 
 __version__ = "0.2.0"
 __author__ = "Azriel Ghadooshahy"
 
-# Core imports for easy access
+# Core system imports with robust error handling
 try:
     import torch
+    import numpy as np
 
-    # Check CUDA availability
     CUDA_AVAILABLE = torch.cuda.is_available()
     DEVICE = torch.device("cuda" if CUDA_AVAILABLE else "cpu")
 
-except ImportError as e:
-    print(f"Warning: Core dependencies not available: {e}")
-    CUDA_AVAILABLE = False
-    DEVICE = torch.device("cpu")
+    if CUDA_AVAILABLE:
+        GPU_COUNT = torch.cuda.device_count()
+        GPU_NAME = torch.cuda.get_device_name(0)
+    else:
+        GPU_COUNT = 0
+        GPU_NAME = "No GPU Available"
 
-# Expose key classes for convenient imports
+except ImportError as e:
+    print(f"⚠️  Critical dependency missing: {e}")
+    CUDA_AVAILABLE = False
+    DEVICE = "cpu"
+    GPU_COUNT = 0
+    GPU_NAME = "Dependencies Missing"
+
 from .config import load_config
-from .utils.device import get_device
+from .utils.device import get_device, setup_cuda_environment
 
 __all__ = [
     "__version__",
-    "load_config",
-    "get_device",
     "CUDA_AVAILABLE",
     "DEVICE",
+    "GPU_COUNT",
+    "GPU_NAME",
+    "load_config",
+    "get_device",
+    "setup_cuda_environment"
 ]

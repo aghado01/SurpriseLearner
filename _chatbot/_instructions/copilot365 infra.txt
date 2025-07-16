@@ -1,0 +1,248 @@
+# VS Code “Doohickies” for Automated Boot-Up & GitHub Flow
+
+Below is a grab-bag of ready-to-drop automations, code snippets and settings to make VS Code fire up your workflows on open, wire in GitHub CLI commands, scaffold PRs, tie into Copilot—and generally streamline your “git-and-go” developer rhythm.
+
+---
+
+## 1. Auto-Run Tasks on Folder Open
+
+Since VS Code 1.76 you can flag a task to run immediately when a workspace opens:
+
+```jsonc
+// .vscode/tasks.json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🟢 On Open: Bootstrap",
+      "dependsOn": [
+        "Install Dependencies",
+        "Lint Code",
+        "Export Repo to JSON"
+      ],
+      "runOptions": { "runOn": "folderOpen" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Install Dependencies",
+      "type": "shell",
+      "command": "npm install",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint Code",
+      "type": "shell",
+      "command": "npm run lint",
+      "problemMatcher": []
+    },
+    {
+      "label": "Export Repo to JSON",
+      "type": "shell",
+      "command": "pwsh ./scripts/export-json.ps1",
+      "problemMatcher": []
+    }
+  ]
+}
+```
+
+- “On Open: Bootstrap” will kick off all three subtasks every time you open the folder.
+- Tweak the `dependsOn` list to suit your stack (e.g. pip install, composer install).
+
+---
+
+## 2. Dev Container Startup Hooks
+
+In your `.devcontainer/devcontainer.json`, automate even deeper boot-up steps:
+
+```jsonc
+{
+  // …
+  "initializeCommand": "bash .devcontainer/scripts/initial-setup.sh",
+  "postStartCommand": "bash .devcontainer/scripts/post-start.sh",
+  "customizations": { /* extensions + settings */ }
+}
+```
+
+- **initializeCommand** runs once after the container is built.
+- **postStartCommand** runs every time you “Reopen in Container.”  
+
+Use these to clone submodules, prime your secret store, register VS Code settings, etc.
+
+---
+
+## 3. GitHub CLI Tasks
+
+Automate everyday GitHub calls via `gh` in VS Code:
+
+```jsonc
+// add to .vscode/tasks.json
+{
+  "label": "Create Pull Request",
+  "type": "shell",
+  "command": "gh pr create --fill",
+  "presentation": { "reveal": "always" }
+},
+{
+  "label": "List Open PRs",
+  "type": "shell",
+  "command": "gh pr list --state open",
+  "presentation": { "reveal": "silent" }
+},
+{
+  "label": "Merge PR",
+  "type": "shell",
+  "command": "gh pr merge ${input:prNumber} --merge",
+  "problemMatcher": []
+}
+```
+
+And prompt inputs for mergeable PRs:
+
+```jsonc
+// under "inputs" in tasks.json
+{
+  "id": "prNumber",
+  "type": "promptString",
+  "description": "Number of PR to merge"
+}
+```
+
+Bind these to keys in `keybindings.json`:
+
+```json
+[
+  {
+    "key": "ctrl+alt+p c",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Create Pull Request"
+  },
+  {
+    "key": "ctrl+alt+p l",
+    "command": "workbench.action.tasks.runTask",
+    "args": "List Open PRs"
+  }
+]
+```
+
+---
+
+## 4. Snippet: PR Description Template
+
+Drop this in `.vscode/git-pr-snippets.code-snippets`:
+
+```json
+{
+  "PR Template": {
+    "prefix": "prdesc",
+    "body": [
+      "# 🌟 ${1:Feature or Fix Title}",
+      "",
+      "## What it does",
+      "- $2",
+      "",
+      "## How to test",
+      "1. $3",
+      "2. $4",
+      "",
+      "## Related Issues",
+      "- Closes #${5|1,2,3|}"
+    ],
+    "description": "Scaffold Pull Request description"
+  }
+}
+```
+
+Trigger it by typing `prdesc` in a Markdown file.
+
+---
+
+## 5. Welcome Page Customization
+
+Use the [Custom Welcome Page API](https://code.visualstudio.com/api/extension-guides/welcome-page) to show tips or links on first open. In your `package.json` (if you create a tiny private extension):
+
+```json
+"contributes": {
+  "welcomeContent": {
+    "id": "my-welcome",
+    "path": "./welcome.html"
+  }
+}
+```
+
+Serve up links to your CONTRIBUTING.md, Copilot tips, or “Getting Started” commands.
+
+---
+
+## 6. Settings & Extensions for GitHub-First Flow
+
+In your workspace `.vscode/settings.json`:
+
+```jsonc
+{
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "githubPullRequests.ignoredRepositories": [],
+  "files.autoSave": "onFocusChange",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  "editor.formatOnSave": true,
+  "github.gitAuthenticationScopes": [
+    "repo",
+    "workflow",
+    "read:org"
+  ]
+}
+```
+
+- **git.autofetch** keeps you up to date.
+- **codeActionsOnSave** runs your linters automatically.
+- **githubPullRequests.ignoredRepositories** = `[]` makes the PR extension index all your local projects.
+
+---
+
+## 7. Quick-Start GitHub Actions CI
+
+Add a lean CI pipeline in `.github/workflows/ci.yml`:
+
+```yaml
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint code
+        run: npm run lint
+      - name: Run tests
+        run: npm test
+```
+
+Every PR you open will light up that green checkmark.
+
+---
+
+With these “doohickies” in place, VS Code will:
+
+- Fire off your bootstrap tasks on open  
+- Give you keyboard-driven GitHub CLI commands  
+- Scaffold PRs in a flash  
+- Keep your code linted & formatted  
+- Link seamlessly into GitHub Actions  
+
+Give them a try and let me know which area you want to tweak next!
