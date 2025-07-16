@@ -1,12 +1,26 @@
-# Set default behavior for all files
+# Set default behavior to automatically normalize line endings
 * text=auto
 
-# Explicitly specify line endings for specific file types
+# Force LF line endings for specific file types
+*.py text eol=lf
 *.js text eol=lf
 *.css text eol=lf
 *.html text eol=lf
 *.md text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sh text eol=lf
 
-# Binary files
+# Windows-specific files should retain CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files should not be touched
 *.png binary
 *.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary

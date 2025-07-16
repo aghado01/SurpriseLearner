@@ -146,6 +146,7 @@ torch_cache/
 
 # VS Code
 .vscode/
+*.code-workspace
 
 # PyCharm
 .idea/
