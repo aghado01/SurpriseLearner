@@ -1,23 +1,60 @@
-autonomous_perception_learner/
-├── src/
+adaptive-bayesian-driver/
+├── 📋 README.md                        # Full vision narrative
+├── ⚙️  requirements.txt                 # Tiered dependencies (current + future)
+├── 🚀 requirements-mvp.txt              # Just the working demo
+├── 🏗️  setup.py                        # Package structure
+│
+├── 🧠 src/
 │   ├── __init__.py
-│   ├── environment/
+│   │
+│   ├── 🎯 core/                        # WORKING IMPLEMENTATION
 │   │   ├── __init__.py
-│   │   ├── scene_generator.py      # Continuous scene generation
-│   │   ├── volatility_controller.py # Time-varying bias dynamics
-│   │   └── task_parameters.py      # Hyperparameters & probabilities
-│   ├── models/
+│   │   ├── uncertainty_cnn.py          # ✅ Your LC-NE CNN (IMPLEMENTED)
+│   │   ├── compute_optimizer.py        # ✅ Intel optimization (IMPLEMENTED)
+│   │   └── geometric_priors.py         # ✅ Basic manifold learning (IMPLEMENTED)
+│   │
+│   ├── 🚗 autonomous_driving/          # INTELLIGENT PLACEHOLDERS
 │   │   ├── __init__.py
-│   │   ├── generator.py            # 2-layer ReLU generative prior
-│   │   ├── bayesian_learner.py     # Recursive Bayesian framework
-│   │   └── surprise_detector.py    # LC-NE surprise signals
-│   ├── utils/
+│   │   ├── carla_integration.py        # 🔮 PLACEHOLDER: CARLA simulation bridge
+│   │   ├── multi_modal_fusion.py      # 🔮 PLACEHOLDER: Lidar/camera fusion
+│   │   ├── real_time_inference.py     # 🔮 PLACEHOLDER: Edge deployment
+│   │   └── safety_validation.py       # 🔮 PLACEHOLDER: ISO 26262 compliance
+│   │
+│   ├── 🔬 uncertainty/                 # MIXED: Core + Extensions
 │   │   ├── __init__.py
-│   │   └── visualization.py        # Scene rendering & plotting
-│   └── main.py                     # Main execution
-├── configs/
-│   └── experiment_config.yaml      # All hyperparameters
-├── requirements.txt
+│   │   ├── dual_timescale.py          # ✅ LC-NE dynamics (IMPLEMENTED)
+│   │   ├── bayesian_ensembles.py      # 🔮 PLACEHOLDER: Production ensemble
+│   │   ├── calibration.py             # 🔮 PLACEHOLDER: Temperature scaling
+│   │   └── out_of_distribution.py     # 🔮 PLACEHOLDER: OOD detection
+│   │
+│   └── 🏭 deployment/                  # INFRASTRUCTURE PLACEHOLDERS  
+│       ├── __init__.py
+│       ├── edge_optimization.py       # 🔮 PLACEHOLDER: Vehicle compute
+│       ├── model_serving.py           # 🔮 PLACEHOLDER: T
+
+adaptive-bayesian-driver/
 ├── README.md
-└── notebooks/
-    └── demo.ipynb                  # Interactive demonstration
+├── requirements.txt
+├── setup.py
+│
+├── models/
+│   ├── __init__.py
+│   ├── uncertainty_cnn.py
+│   ├── geometric_prior.py
+│   └── dual_timescale.py
+│
+├── utils/
+│   ├── __init__.py
+│   ├── compute_optimizer.py
+│   ├── uncertainty_metrics.py
+│   └── visualization.py
+│
+├── notebooks/
+│   └── mnist_uncertainty_demo.ipynb
+│
+├── tests/
+│   ├── __init__.py
+│   └── test_uncertainty.py
+│
+└── config/
+    └── experiment_config.yaml

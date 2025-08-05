@@ -1,25 +1,74 @@
-# Core dependencies
-torch>=1.9.0
-torchvision>=0.10.0
-numpy>=1.20.0,<2.0.0
-matplotlib>=3.3.0,<4.0.0
-pyyaml>=5.4.0,<7.0.0
-Pillow>=8.0.0,<11.0.0
-scipy>=1.7.0,<2.0.0
-scikit-learn>=0.24.0,<2.0.0
+# =============================================================================
+# CORE PYTORCH ECOSYSTEM - Essential Foundation
+# =============================================================================
+torch==2.4.0
+torchvision==0.19.0
+torchmetrics==1.4.1
+pytorch-lightning==2.4.0
+bayesian-torch>=0.4.0         
 
-# Data analysis and visualization
-pandas>=1.3.0,<3.0.0
-seaborn>=0.11.0,<1.0.0
+# ML Architecture
+timm==1.0.9
+einops>=0.3.0
+
+# =============================================================================
+# UNCERTAINTY QUANTIFICATION - YOUR CORE DIFFERENTIATOR (UNCOMMENTED)
+# =============================================================================
+torch-uncertainty>=0.2.0        # SOTA uncertainty methods for PyTorch
+laplace-torch>=0.1.0            # Laplace approximation (Bayesian inference)
+uncertainty-toolbox>=0.1.1      # Comprehensive uncertainty evaluation
+unique-uncertainty>=0.2.0       # Novartis UNIQUE - comprehensive UQ benchmarking
+ml-uncertainty-py>=1.0.0        # NIST uncertainty estimation toolbox
+
+
+# =============================================================================
+# GEOMETRIC PRIORS & MANIFOLDS - YOUR THEORETICAL BRIDGE (UNCOMMENTED)
+# =============================================================================
+geomstats>=2.7.0               # Computations and statistics on manifolds
+umap-learn>=0.5.0              # UMAP for uncertainty-aware manifold embedding
+
+# =============================================================================
+# DATA SCIENCE STANDARDS - Minimal Set
+# =============================================================================
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
 jupyter>=1.0.0
+scikit-learn>=1.3.0
+scipy>=1.10.0
 
-# Optional dependencies
-opencv-python>=4.5.0 ##
-tqdm>=4.60.0
+# Configuration & Utilities
+pyyaml>=6.0.0,<7.0.0
+tqdm>=4.66.0,<5.0.0
 
-# Development dependencies
-pytest>=6.0,<8.0.0
-pytest-cov>=2.0,<5.0.0
-flake8>=3.8,<7.0.0
-mypy>=0.800,<2.0.0
+# =============================================================================
+# EXPERIMENT TRACKING - Production Awareness (Keep for Interview Context)
+# =============================================================================
+wandb>=0.17.0                  # Research experiment tracking
+mlflow>=2.9.0                  # Production deployment tracking
+
+# =============================================================================
+# DEVELOPMENT & TESTING
+# =============================================================================
+pytest>=8.0.0,<9.0.0
+pytest-cov>=5.0.0,<6.0.0
+pre-commit>=3.7.0,<4.0.0
 black>=21.0,<25.0.0
+mypy>=1.10.0,<2.0.0
+
+# =============================================================================
+# COMMENTED OUT - Unnecessary for Demo Timeline
+# =============================================================================
+# pandas>=2.0.0                # Not needed for MNIST demo
+# pillow>=9.0.0,<11.0.0        # torchvision handles image processing  
+# ipywidgets>=8.0.0            # Nice but not essential for core demo
+
+# =============================================================================
+# COMMENTED OUT - Advanced/Future Features
+# =============================================================================
+# ensemble-manifolds>=1.0.0    # Advanced uncertainty ensembles - future work
+# dask[complete]>=2024.1.0     # Distributed computing - CARLA phase
+# dask-ml>=2025.1.0            # ML extensions - scaling phase
+# skorch>=1.1.0                # PyTorch-sklearn bridge - future integration
+# ray[tune]>=2.9.0             # Hyperparameter optimization - production phase
+# optuna>=3.5.0                # Bayesian optimization - advanced tuning
