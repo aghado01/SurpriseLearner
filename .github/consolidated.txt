@@ -1,0 +1,6 @@
+.github/
+├── copilot-instructions.md              # Main repository instructions
+└── instructions/
+    ├── powershell-helpers.instructions.md
+    ├── python-ml-models.instructions.md
+    └── memory-orchestration.instructions.md
