@@ -1,0 +1,21 @@
+{
+    "servers": {
+        "GitHub": {
+            "type": "http",
+            "url": "https://api.githubcopilot.com/mcp/"
+        },
+        "HuggingFace": {
+            "type": "http",
+            "url": "https://hf.co/mcp"
+        },
+        "filesystem": {
+            "type": "stdio",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-filesystem",
+                "${workspaceFolder}",
+            ]
+        }
+    }
+}

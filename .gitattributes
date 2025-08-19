@@ -1,26 +1,167 @@
+# SurpriseLearner - Git Attributes for Memory Orchestration & ML Workflows
+# Adaptive Bayesian learning with flattened logging structure for JSONL aggregation
+
 # Set default behavior to automatically normalize line endings
 * text=auto
 
-# Force LF line endings for specific file types
+# === MEMORY ORCHESTRATION SYSTEM (Flattened Structure) ===
+# JSONL log files for aggregated memory system
+*.jsonl text eol=lf
+
+# Memory orchestration with semantic file naming (no nested dirs)
+session_*.log text eol=lf
+session_*.json text eol=lf
+sequence_*.log text eol=lf
+sequence_*.json text eol=lf
+project_*.log text eol=lf
+project_*.json text eol=lf
+global_*.log text eol=lf
+global_*.json text eol=lf
+
+# Memory state snapshots and persistence
+*_snapshot.json text eol=lf
+*_state.yaml text eol=lf
+memory_*.jsonl text eol=lf
+orchestration_*.jsonl text eol=lf
+
+# === POWERSHELL 7+ INTEGRATION ===
+# PowerShell scripts require CRLF for console compatibility
+*.ps1 text eol=crlf
+*.psm1 text eol=crlf
+*.psd1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# PowerShell Central console logs (flattened naming)
+console_*.log text eol=crlf
+terminal_*.log text eol=crlf
+powershell_*.jsonl text eol=lf
+
+# === PYTHON ML ===
+# Core Python components - LF for cross-platform PyTorch compatibility
 *.py text eol=lf
-*.js text eol=lf
-*.css text eol=lf
-*.html text eol=lf
-*.md text eol=lf
+*.pyx text eol=lf
+*.pxd text eol=lf
+*.ipynb text eol=lf
+
+# === CONFIGURATION & DOCUMENTATION ===
+# Configuration files - LF for consistency across memory tiers
 *.json text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
+*.toml text eol=lf
+*.cfg text eol=lf
+*.ini text eol=lf
+
+# Documentation and markup
+*.md text eol=lf
+*.rst text eol=lf
+*.txt text eol=lf
+
+# Web and script files
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
 *.sh text eol=lf
 
-# Windows-specific files should retain CRLF
-*.bat text eol=crlf
-*.cmd text eol=crlf
-*.ps1 text eol=crlf
+# === MODELS AND LEARNING ===
+# PyTorch model files and checkpoints (binary)
+*.pt binary
+*.pth binary
+*.onnx binary
+*.model binary
+*.weights binary
+*.checkpoint binary
+*.state_dict binary
 
-# Binary files should not be touched
+# Uncertainty quantification data
+*.pkl binary
+*.joblib binary
+*.h5 binary
+*.hdf5 binary
+
+# NumPy arrays and scientific data
+*.npy binary
+*.npz binary
+*.mat binary
+
+# === FLATTENED LOG STRUCTURE FOR JSONL AGGREGATION ===
+# Diagnostic logs with semantic naming
+diagnostic_*.log text eol=lf
+diagnostic_*.jsonl text eol=lf
+scanner_*.log text eol=lf
+scanner_*.jsonl text eol=lf
+check_*.log text eol=lf
+check_*.jsonl text eol=lf
+
+# Fix and cleanup logs
+fix_*.log text eol=lf
+fix_*.jsonl text eol=lf
+cleanup_*.log text eol=lf
+cleanup_*.jsonl text eol=lf
+
+# Test execution logs
+test_*.log text eol=lf
+test_*.jsonl text eol=lf
+comprehensive_*.log text eol=lf
+
+# Organization tool logs
+organize_*.log text eol=lf
+organize_*.jsonl text eol=lf
+
+# === DATA FILES ===
+# Structured data - text with LF
+*.csv text eol=lf
+*.tsv text eol=lf
+
+# Binary data formats
+*.parquet binary
+*.feather binary
+*.arrow binary
+
+# === DEVELOPMENT TOOLS ===
+# IDE and development files
+.vscode/* text eol=lf
+.idea/* text eol=lf
+
+# Git files
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.gitmodules text eol=lf
+
+# CI/CD and automation
+*.dockerfile text eol=lf
+Dockerfile* text eol=lf
+docker-compose*.yml text eol=lf
+.dockerignore text eol=lf
+
+# === MEDIA & BINARY ASSETS ===
+# Images
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.gif binary
+*.bmp binary
+*.tiff binary
 *.ico binary
+*.svg text eol=lf
+
+# Documents and archives
 *.pdf binary
+*.zip binary
+*.tar.gz binary
+*.7z binary
+*.rar binary
+
+# === ADAPTIVE BAYESIAN DRIVER SPECIFIC ===
+# Surprise detection model artifacts
+surprise_*.pt binary
+bayesian_*.pkl binary
+uncertainty_*.npy binary
+
+# Bayesian learning execution logs (flattened for JSONL aggregation)
+bayesian_*.log text eol=lf
+bayesian_*.jsonl text eol=lf
+surprise_*.log text eol=lf
+surprise_*.jsonl text eol=lf
+learning_*.jsonl text eol=lf

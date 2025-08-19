@@ -1,0 +1,12 @@
+How to ensure that torch ecosystem is version coordinated?
+
+What version of torch to use for this project?
+
+
+git add --all; git commit -m "Normalize "line endings"
+
+git rm --cached -r .
+git add .
+git commit -m "attribute revisions applied"
+git config core.safecrlf warn
+git config core.autocrlf false  # Let .gitattributes handle everythi

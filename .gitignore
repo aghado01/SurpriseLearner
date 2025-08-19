@@ -1,3 +1,12 @@
+
+
+# Specific Directories
+Microsoft/
+.snapshot/
+# .vscode/
+*.code-workspace
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -144,9 +153,6 @@ torch_cache/
 # _chatbot/
 # !_chatbot/README.md
 
-# VS Code
-.vscode/
-*.code-workspace
 
 # PyCharm
 .idea/

@@ -1,0 +1,33 @@
+{
+  "github.copilot.enable": {
+    "*": true,
+    "python": true,
+    "jupyter": true,
+    "markdown": true,
+    "yaml": true
+  },
+  "github.copilot.advanced": {
+    "debug.overrideEngine": "copilot-codex",
+    "inlineSuggestEnable": true
+  },
+  // "python.defaultInterpreterPath": "$env:PORTABLE_HOME\\Portable\\Python\\python-3.11",
+  "python.analysis.typeCheckingMode": "strict",
+  "python.analysis.autoImportCompletions": true,
+  "jupyter.askForKernelRestart": false,
+  "files.associations": {
+    "*.py": "python",
+    "requirements*.txt": "pip-requirements"
+  },
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      // "source.organizeImports": true
+    }
+  },
+  "monica-code.enableDebugLogs": true,
+  "monica-code.enableQuickActions": false
+}
