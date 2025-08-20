@@ -1,0 +1,35 @@
+# Memory Orchestration Instructions
+
+## Enhanced Multi-Scope Memory System
+
+### Memory Hierarchy
+1. **Session Memory** (`.copilot/logs/session/`)
+   - Current terminal commands and outputs
+   - Real-time context for active development
+   - 24-hour retention with 10MB limit
+
+2. **Sequence Memory** (`.copilot/logs/sequences/`)
+   - Autonomous instruction execution tracking
+   - Post-execution analysis and results
+   - 7-day retention with 50MB limit
+
+3. **Project Memory** (`.copilot/logs/project/`)
+   - Cross-session development continuity
+   - Project-specific context and patterns
+   - 30-day retention with 100MB limit
+
+4. **Global Memory** (`$env:PORTABLE_HOME/Logs/AI-Repository/`)
+   - Cross-project learning patterns
+   - ML engineering solutions and approaches
+   - 90-day retention with 500MB limit
+
+### Integration with Instructions
+- Memory queries should reference instruction hierarchy
+- Context injection considers both `.github/` and `.copilot/` sources
+- Historical solutions are tagged by instruction source type
+
+### Usage Guidelines
+- Use `Write-MemoryLog` for structured logging across scopes
+- Query memory with context-aware searches
+- Maintain instruction traceability in memory entries
+- Integrate with PowerShell profile memory initialization

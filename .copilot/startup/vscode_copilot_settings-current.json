@@ -1,0 +1,19 @@
+{
+    "github.copilot.chat.localeOverride": "en",
+    "github.copilot.enable": {
+        "*": true,
+        "powershell": true,
+        "python": true,
+        "markdown": true,
+        "json": true
+    },
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+    "github.copilot.advanced": {
+        "debug.overrideEngine": "copilot-codex",
+        "debug.testOverrideProxyUrl": "",
+        "debug.overrideProxyUrl": ""
+    },
+    "github.copilot.editor.enableCodeActions": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "search.searchView.semanticSearchBehavior": "manual"
+}

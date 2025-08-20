@@ -42,7 +42,7 @@ docs/_build/
 notebooks/
 
 # IDE files
-.vscode/
+# .vscode/
 .idea/
 *.swp
 *.swo

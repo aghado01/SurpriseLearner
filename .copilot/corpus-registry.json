@@ -1,0 +1,67 @@
+{
+  "created": "2025-08-09 06:39:52",
+  "global_stats": {
+    "total_size_mb": 0,
+    "total_stores": 2,
+    "total_documents": 0
+  },
+  "version": "1.0",
+  "domains": {
+    "PowerShell": {
+      "config_file": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-PowerShell\\corpus-config.json",
+      "last_scanned": "2025-08-09 06:39:52",
+      "stores": {},
+      "directory": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-PowerShell",
+      "rules_file": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-PowerShell\\domain-rules.ps1",
+      "name": "PowerShell",
+      "paths": {
+        "DocsPowerShell": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-PowerShell\\docs-powershell",
+        "DocsDotNetAPI": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-PowerShell\\docs-dotnet-api",
+        "Combined": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-PowerShell\\combined",
+        "Base": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-PowerShell",
+        "SourcePowerShell": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-PowerShell\\source-powershell",
+        "Temp": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-PowerShell\\temp",
+        "Sections": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-PowerShell\\sections"
+      },
+      "registered_at": "2025-08-09 06:39:52",
+      "stats": {
+        "total_size_mb": 0,
+        "total_stores": 0,
+        "total_documents": 0
+      },
+      "corpus_type": "powershell"
+    },
+    "PyTorch": {
+      "config_file": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\pytorch-corpus-config.json",
+      "last_scanned": "2025-08-09 06:39:52",
+      "stores": {},
+      "directory": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch",
+      "rules_file": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\domain-rules.ps1",
+      "name": "PyTorch",
+      "paths": {
+        "SourceEcosystem": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\source-ecosystem",
+        "SourcePyTorch": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\source-pytorch",
+        "DocsTorchAudio": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\docs-torchaudio",
+        "DocsTorchVision": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\docs-torchvision",
+        "Sections": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\sections",
+        "Combined": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\combined",
+        "DocsONNX": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\docs-onnx",
+        "DocsPyTorchCore": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\docs-pytorch-core",
+        "Temp": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\temp",
+        "DocsTransformers": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\docs-transformers",
+        "DocsTorchText": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\docs-torchtext",
+        "Base": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch",
+        "DocsLightning": "C:\\Users\\azriy\\PortDenv\\Projects\\CorpusCollections\\Collections-Pytorch\\docs-lightning"
+      },
+      "registered_at": "2025-08-09 06:39:52",
+      "stats": {
+        "total_size_mb": 0,
+        "total_stores": 0,
+        "total_documents": 0
+      },
+      "corpus_type": "pytorch"
+    }
+  },
+  "workspace_directory": ".",
+  "updated": "2025-08-09 06:39:52"
+}

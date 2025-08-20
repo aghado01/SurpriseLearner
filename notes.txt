@@ -1,7 +1,11 @@
+
+Reposnapshot should adjust reading either json or jsonl presets depending on the preset filetype specified
+
 How to ensure that torch ecosystem is version coordinated?
 
 What version of torch to use for this project?
 
+git add --renormalize .
 
 git add --all; git commit -m "Normalize "line endings"
 
@@ -10,3 +14,10 @@ git add .
 git commit -m "attribute revisions applied"
 git config core.safecrlf warn
 git config core.autocrlf false  # Let .gitattributes handle everythi
+
+
+. C:\Users\azriy\PortDenv\.denv\Profiles\VSCode.SmartProfileLoader.ps1
+
+
+git init
+git add .
